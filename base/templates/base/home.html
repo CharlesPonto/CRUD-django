@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>List of Players</h1>
+<table border="3" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Profile</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Game</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for player in players %}
+        <tr>
+            <td><img src="https://tse1.mm.bing.net/th?id=OIP.jQc294WED8p75DlIKBgMNAHaE8&pid=Api" alt="Player Profile" height="50px" width="50px"></td>
+            <td>{{player.username}}</td>
+            <td>{{player.email}}</td>
+            <td>{{player.game}}</td>
+            <td>
+                <a href="#">Edit</a>
+                <a href="#">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
