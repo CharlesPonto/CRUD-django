@@ -20,7 +20,7 @@
             <td>{{player.email}}</td>
             <td>{{player.game}}</td>
             <td>
-                <a href="#">Edit</a>
+                <a href="{% url 'update-player' player.id %}">Edit</a>
                 <a href="#">Delete</a>
             </td>
         </tr>

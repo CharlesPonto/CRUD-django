@@ -20,8 +20,18 @@ def createPlayer(request):
     context = {'form': form}
     return render(request, 'base/create-player.html', context)
 
-def updatePlayer():
-    pass
+def updatePlayer(request, pk):
+    player = Player.objects.get(id=pk)
+    form = PlayerForm(instance=player)
+    
+    if request.method == "POST":
+        form = PlayerForm(request.POST, instance=player)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    
+    context = {'form': form}
+    return render(request, 'base/update.html', context)
 
 def deletePlayer():
     pass
