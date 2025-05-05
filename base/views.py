@@ -33,5 +33,10 @@ def updatePlayer(request, pk):
     context = {'form': form}
     return render(request, 'base/update.html', context)
 
-def deletePlayer():
-    pass
+def deletePlayer(request, pk):
+    player = Player.objects.get(id=pk)
+    if request.method == "POST":
+        player.delete()
+        return redirect('home')
+    
+    return render(request, 'base/delete-player.html', {'player': player})

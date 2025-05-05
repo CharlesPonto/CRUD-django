@@ -21,7 +21,7 @@
             <td>{{player.game}}</td>
             <td>
                 <a href="{% url 'update-player' player.id %}">Edit</a>
-                <a href="#">Delete</a>
+                <a href="{% url 'delete-player' player.id %}">Delete</a>
             </td>
         </tr>
         {% endfor %}
